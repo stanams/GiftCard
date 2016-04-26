@@ -1,20 +1,41 @@
-<div class="">
-  <h1>MyCoolBrand</h1>
-</div>
+<div class="page-wrapper">
 
-<div>
-  <h3>Sign In</h3>
-  <form class="" action="/session" method="post">
-    <%= auth_token %>
-    <input type="text" name="user[email]" id="Email" placeholder="Enter your email" value="<%= @user.nil? ? '' : "#{@user.email}"%>">
-    <br>
-    <br>
-    <input type="password" name="user[password]" id="Password" value="" placeholder="Password">
-    <br>
-    <br>
-    <input class="" type="submit" value="Sign In">
-  </form>
-  <p class="">
-    Don't have an account ? <%= link_to "Sign Up!", new_user_url %>
-  </p>
+  <div class="brand-name">
+    <img src="http://res.cloudinary.com/codehunt/image/upload/c_scale,w_120/v1461658809/logo_ubhtk5.png" alt="The Atlantic" />
+  </div>
+
+  <div class="auth-wrapper">
+
+
+      <h2 class="signup-title">Welcome back!</h2>
+
+      <!-- Error messages -->
+      <% if flash[:errors] %>
+        <% flash[:errors].each do |error| %>
+          <ul>
+            <li class="flash-message-item"><%= error %></li>
+          </ul>
+        <% end %>
+      <% end %>
+
+
+      <form class="auth-form" action="/session" method="post">
+        <%= auth_token %>
+        <input class="input-field" type="text" name="user[email]" id="Email" placeholder="Email" value="<%= @user.nil? ? '' : "#{@user.email}"%>">
+        <br>
+        <br>
+        <input class="input-field" type="password" name="user[password]" id="Password" value="" placeholder="Password">
+        <br>
+        <br>
+        <input class="submit-button" type="submit" value="Sign In">
+      </form>
+      <br>
+      <br>
+      <br>
+      <p class="auth-footer">
+        Don't have an account ? <%= link_to "Sign Up!", new_user_url %>
+      </p>
+
+
+  </div>
 </div>
