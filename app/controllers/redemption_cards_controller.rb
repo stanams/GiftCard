@@ -1,20 +1,20 @@
 class RedemptionCardsController < ApplicationController
 
-  # def new
-  #   @redemption_card = RedemptionCard.new
-  # end
-  #
-  # def create
-  #   @redemption_card = RedemptionCard.new(redemption_card_params)
-  #
-  #   if @redemption_card.save
-  #
-  #     redirect_to root_url
-  #   else
-  #     flash.now[:errors] = @redemption_card.errors.full_messages
-  #     render :new
-  #   end
-  # end
+  def new
+    @redemption_card = RedemptionCard.new
+  end
+
+  def create
+    @redemption_card = RedemptionCard.new(redemption_card_params)
+
+    if @redemption_card.save
+
+      redirect_to root_url
+    else
+      flash.now[:errors] = @redemption_card.errors.full_messages
+      render :new
+    end
+  end
 
   def show
     @redemption_card = RedemptionCard.find(params[:id])

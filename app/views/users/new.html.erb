@@ -1,20 +1,29 @@
-<div class="">
-  <h1>MyCoolBrand</h1>
-</div>
+<div class="page-wrapper">
 
-<div>
-  <h3>Sign Up</h3>
-  <form class="" action="/users" method="post">
-    <%= auth_token %>
-    <input type="text" name="user[email]" id="Email" placeholder="Enter your email" value="<%= @user.nil? ? '' : "#{@user.email}"%>">
-    <br>
-    <br>
-    <input type="password" name="user[password]" id="Password" value="" placeholder="Password">
-    <br>
-    <br>
-    <input class="" type="submit" value="Sign Up">
-  </form>
-  <p class="">
+  <div class="brand-name">
+    <h1>MyCoolBrand</h1>
+  </div>
+
+  <div class="auth-wrapper">
+
+
+    <div>
+      <h2 class="signup-title">Sign Up</h2>
+      <form class="auth-form" action="/users" method="post">
+        <%= auth_token %>
+        <input class="input-field" type="text" name="user[email]" id="Email" placeholder="Email" value="<%= @user.nil? ? '' : "#{@user.email}"%>">
+        <br>
+        <br>
+        <input class="input-field" type="password" name="user[password]" id="Password" value="" placeholder="Password">
+        <br>
+        <br>
+        <input class="submit-button" type="submit" value="Sign Up">
+      </form>
+    </div>
+  </div>
+
+  <p class="auth-footer">
     Already have an account ? <%= link_to "Sign In!", new_session_url %>
   </p>
+
 </div>
