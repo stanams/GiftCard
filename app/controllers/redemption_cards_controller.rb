@@ -4,14 +4,23 @@ class RedemptionCardsController < ApplicationController
     @redemption_card = RedemptionCard.new
   end
 
+  def index
+    @redemption_cards = RedemptionCard.all
+  end
+
   def create
-    @redemption_card = RedemptionCard.new(redemption_card_params)
+    @redemption_card = RedemptionCard.find_by_card_codes(
+      params[:redemption_card][:card_code],
+      params[:redemption_card][:card_pin]
+    )
 
-    if @redemption_card.save
+    if (params[:redemption_card][:card_code].to_s == "1234567898765432") &&
+      (params[:redemption_card][:card_pin] == 1234)
 
-      redirect_to root_url
+
+      redirect_to new_redemption_card_url
     else
-      flash.now[:errors] = @redemption_card.errors.full_messages
+      flash.now[:errors] = ["Wrong code & pin combination! Double check your card."]
       render :new
     end
   end

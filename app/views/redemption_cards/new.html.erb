@@ -1,0 +1,45 @@
+<div class="page-wrapper">
+
+<nav>
+  <img src="http://res.cloudinary.com/codehunt/image/upload/c_scale,w_120/v1461658809/logo_ubhtk5.png" alt="The Atlantic" />
+</nav>
+
+  <div class="auth-wrapper">
+
+
+      <h2 class="signup-title">Redeem your gift card!</h2>
+
+      <p>
+        You're logged in as: <%= current_user.email %>
+      </p>
+
+      <!-- Error messages -->
+      <% if flash[:errors] %>
+        <% flash[:errors].each do |error| %>
+          <ul>
+            <li class="flash-message-item"><%= error %></li>
+          </ul>
+        <% end %>
+      <% end %>
+
+
+      <form class="auth-form" action="/redemption_cards" method="post">
+        <%= auth_token %>
+        <input class="input-field" type="text" name="redemption_card[card_code]" id="card-code" placeholder="Enter your 16 digits card code" value="<%= @redemption_card.nil? ? '' : "#{@redemption_card.card_code}"%>">
+        <br>
+        <br>
+        <input class="input-field" type="text" name="redemption_card[card_pin]" id="card-Pin" value="<%= @redemption_card.nil? ? '' : "#{@redemption_card.card_code}"%>" placeholder="Enter your 4 digits pin">
+        <br>
+        <br>
+        <input class="submit-button" type="submit" value="Redeem!">
+      </form>
+      <br>
+      <br>
+      <br>
+      <p class="auth-footer">
+        <%= link_to "Logout", session_url, method: :delete %>
+      </p>
+
+
+  </div>
+</div>

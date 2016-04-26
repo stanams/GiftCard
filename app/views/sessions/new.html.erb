@@ -21,10 +21,10 @@
 
       <form class="auth-form" action="/session" method="post">
         <%= auth_token %>
-        <input class="input-field" type="text" name="user[email]" id="Email" placeholder="Email" value="<%= @user.nil? ? '' : "#{@user.email}"%>">
+        <input class="input-field" type="text" name="user[email]" id="email" placeholder="Email" value="<%= @user.nil? ? '' : "#{@user.email}"%>">
         <br>
         <br>
-        <input class="input-field" type="password" name="user[password]" id="Password" value="" placeholder="Password">
+        <input class="input-field" type="password" name="user[password]" id="password" value="" placeholder="Password">
         <br>
         <br>
         <input class="submit-button" type="submit" value="Sign In">
@@ -33,7 +33,7 @@
       <br>
       <br>
       <p class="auth-footer">
-        Don't have an account ? <%= link_to "Sign Up!", new_user_url %>
+        Don't have an account yet? <%= link_to "Sign Up!", new_user_url %>
       </p>
 
 
