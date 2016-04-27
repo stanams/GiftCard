@@ -40,34 +40,40 @@
   </div>
 
   <div class="balance-archive-wrapper">
-    <div class="balance-area">
+    <p class="balance-area">
       Your balance is currently: $<%= current_user.balance %>
+    </p>
+    <div class="separator">
     </div>
 
-    <table>
-      <tr>
-        <th># Gift Card</th>
-        <th>Date</th>
-        <th>Receiver</th>
-        <th>Amount</th>
+    <p class="history-area">
+      Your history:
+    </p>
+
+    <table class="archive-table">
+      <tr class="archive-table-rows">
+        <th class="archive-table-head"># Gift Card</th>
+        <th class="archive-table-head">Date</th>
+        <th class="archive-table-head">Receiver</th>
+        <th class="archive-table-head">Amount</th>
       </tr>
-      <tr>
-        <td>12987117239712</td>
-        <td>09/04/2016</td>
-        <td>azeiyo@oizued.com</td>
-        <td>$20</td>
+      <tr class="archive-table-rows">
+        <td class="archive-table-cells">12987117239712</td>
+        <td class="archive-table-cells">09/04/2016</td>
+        <td class="archive-table-cells">azeiyo@oizued.com</td>
+        <td class="archive-table-cells">$20</td>
       </tr>
-      <tr>
-        <td>97178162389712</td>
-        <td>04/28/2016</td>
-        <td>azeiyo@oizued.com</td>
-        <td>$40</td>
+      <tr class="archive-table-rows">
+        <td class="archive-table-cells">97178162389712</td>
+        <td class="archive-table-cells">04/28/2016</td>
+        <td class="archive-table-cells">azeiyo@oizued.com</td>
+        <td class="archive-table-cells">$40</td>
       </tr>
-      <tr>
-        <td>2698731209873</td>
-        <td>02/25/2016</td>
-        <td>azeiyo@oizued.com</td>
-        <td>$30</td>
+      <tr class="archive-table-rows">
+        <td class="archive-table-cells">2698731209873</td>
+        <td class="archive-table-cells">02/25/2016</td>
+        <td class="archive-table-cells">azeiyo@oizued.com</td>
+        <td class="archive-table-cells">$30</td>
       </tr>
     </table>
 

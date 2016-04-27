@@ -15,13 +15,6 @@
   justify-content: space-around;
 }
 
-.balance-archive-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-}
-
 .redeem-wrapper {
   background-color: white;
   border-radius: 3px;
@@ -43,4 +36,25 @@
 .redeem-footer {
   text-align: center;
   margin: 20px;
+}
+
+.balance-archive-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 350px;
+  padding: 50px;
+}
+
+.balance-area {
+  font-size: 30px;
+}
+
+.history-area {
+  font-size: 20px;
+}
+
+
+.archive-table-cells {
+  padding: 20px;
 }

@@ -84,6 +84,10 @@ h1, h2, h3 {
   font-family: Montserrat;
 }
 
+table {
+  font-family: Open Sans;
+}
+
  h1 {
   font-size: 40px;
  }
@@ -109,6 +113,12 @@ input:focus {
   border-color: rgba(238, 238, 238, 0.8);
   box-shadow: 0 1px 1px rgba(238, 238, 238, 0.075) inset, 0 0 8px rgba(238, 238, 238, 0.6);
   outline: 0 none;
+}
+
+.separator {
+  border-top: solid 0.5px #A9A9A9;
+  border-bottom: solid 0.5px #EEE;
+  width: 400px;
 }
 
  /* ------- AUTHENTICATION ------- */
