@@ -19,8 +19,18 @@ class RedemptionCardsController < ApplicationController
 
       redirect_to new_redemption_card_url
       flash.now[:success] = ["Congrats! You've redeemed your Card Gift!"]
+    elsif (params[:redemption_card][:card_code] == "") && (params[:redemption_card][:card_pin] == "")
+      flash.now[:errors] = ["You didn't enter your card & pin codes!"]
+      render :new
+    elsif (params[:redemption_card][:card_code] == "")
+      flash.now[:errors] = ["You didn't enter a card code!"]
+      render :new
+    elsif (params[:redemption_card][:card_pin] == "")
+      flash.now[:errors] = ["You didn't enter a pin code!"]
+      render :new
     else
-      flash.now[:errors] = ["Wrong code & pin combination! Double check your card or contact us."]
+      flash.now[:errors] = ["Wrong code & pin combination!."]
+      flash.now[:errors] += ["Please retry or contact our support."]
       render :new
     end
   end
