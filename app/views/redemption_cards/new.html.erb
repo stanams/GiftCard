@@ -1,29 +1,32 @@
-<div class="page-wrapper">
-
-<nav>
-  <img src="http://res.cloudinary.com/codehunt/image/upload/c_scale,w_120/v1461658809/logo_ubhtk5.png" alt="The Atlantic" />
+<nav class="logo-container">
+  <img class="logo-center" src="http://res.cloudinary.com/codehunt/image/upload/c_scale,w_120/v1461658809/logo_ubhtk5.png" alt="The Atlantic" />
 </nav>
+<p class="login-as">
+  You're logged in as: <%= current_user.email %>
+</p>
+<div class="redeem-page-wrapper">
 
-  <div class="auth-wrapper">
+  <div class="redeem-wrapper">
 
 
-      <h2 class="signup-title">Redeem your gift card!</h2>
-
-      <p>
-        You're logged in as: <%= current_user.email %>
-      </p>
+      <h2 class="redeem-title">Redeem your gift card!</h2>
 
       <!-- Error messages -->
       <% if flash[:errors] %>
         <% flash[:errors].each do |error| %>
           <ul>
-            <li class="flash-message-item"><%= error %></li>
+            <li class="flash-message-item-redeem"><%= error %></li>
           </ul>
         <% end %>
+      <% elsif flash[:success]%>
+          <% flash[:success].each do |notice| %>
+            <ul>
+              <li class="flash-message-item-redeem"><%= notice %></li>
+            </ul>
+          <% end %>
       <% end %>
 
-
-      <form class="auth-form" action="/redemption_cards" method="post">
+      <form class="" action="/redemption_cards" method="post">
         <%= auth_token %>
         <input class="input-field" type="text" name="redemption_card[card_code]" id="card-code" placeholder="Enter your 16 digits card code" value="<%= @redemption_card.nil? ? '' : "#{@redemption_card.card_code}"%>">
         <br>
@@ -33,13 +36,43 @@
         <br>
         <input class="submit-button" type="submit" value="Redeem!">
       </form>
-      <br>
-      <br>
-      <br>
-      <p class="auth-footer">
-        <%= link_to "Logout", session_url, method: :delete %>
-      </p>
 
+  </div>
+
+  <div class="balance-archive-wrapper">
+    <div class="balance-area">
+      Your balance is currently: $<%= current_user.balance %>
+    </div>
+
+    <table>
+      <tr>
+        <th># Gift Card</th>
+        <th>Date</th>
+        <th>Receiver</th>
+        <th>Amount</th>
+      </tr>
+      <tr>
+        <td>12987117239712</td>
+        <td>09/04/2016</td>
+        <td>azeiyo@oizued.com</td>
+        <td>$20</td>
+      </tr>
+      <tr>
+        <td>97178162389712</td>
+        <td>04/28/2016</td>
+        <td>azeiyo@oizued.com</td>
+        <td>$40</td>
+      </tr>
+      <tr>
+        <td>2698731209873</td>
+        <td>02/25/2016</td>
+        <td>azeiyo@oizued.com</td>
+        <td>$30</td>
+      </tr>
+    </table>
 
   </div>
 </div>
+<p class="redeem-footer">
+  <%= link_to "Logout", session_url, method: :delete %>
+</p>

@@ -186,3 +186,8 @@ input:focus {
   font-size: 14px;
   color: #E02E46;
 }
+
+.login-as {
+  text-align: center;
+  margin: 20px;
+}

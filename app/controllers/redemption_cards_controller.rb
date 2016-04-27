@@ -14,13 +14,13 @@ class RedemptionCardsController < ApplicationController
       params[:redemption_card][:card_pin]
     )
 
-    if (params[:redemption_card][:card_code].to_s == "1234567898765432") &&
-      (params[:redemption_card][:card_pin] == 1234)
-
+    if (params[:redemption_card][:card_code].to_s.include?("symphonycrocks")) &&
+      (params[:redemption_card][:card_pin] == "1234")
 
       redirect_to new_redemption_card_url
+      flash.now[:success] = ["Congrats! You've redeemed your Card Gift!"]
     else
-      flash.now[:errors] = ["Wrong code & pin combination! Double check your card."]
+      flash.now[:errors] = ["Wrong code & pin combination! Double check your card or contact us."]
       render :new
     end
   end
