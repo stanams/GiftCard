@@ -61,3 +61,35 @@
 .archive-table-cells {
   padding: 20px;
 }
+
+// VALIDATION REDEEMED
+
+.fa-check-circle {
+  color: #5FCF80;
+}
+
+.validation-card-center {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  margin: 60px;
+}
+
+.validation-button-checked {
+  border: 1px solid #5FCF80;
+  background: #F7F7F7;
+  color: #5FCF80;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 15px 40px;
+  transition: background 0.5s ease;
+  font-size: 18px;
+  font-family: Montserrat;
+}
+.validation-button-checked:hover {
+  color: white;
+  background: #5FCF80;
+  cursor: pointer;
+}

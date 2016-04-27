@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in(@user)
-      redirect_to root_url
+      redirect_to check_form_redemption_cards_url
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
