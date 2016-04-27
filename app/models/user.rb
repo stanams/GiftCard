@@ -31,6 +31,11 @@ class User < ActiveRecord::Base
     self.session_token
   end
 
+  # def increase_balance(amount)
+  #   @balance = @user.balance
+  #   @balance += amount
+  # end
+
   private
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)

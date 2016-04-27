@@ -1,0 +1,14 @@
+<nav class="logo-container">
+  <img class="logo-center" src="http://res.cloudinary.com/codehunt/image/upload/c_scale,w_120/v1461658809/logo_ubhtk5.png" alt="The Atlantic" />
+</nav>
+<p class="login-as">
+  You're logged in as: <%= current_user.email %>
+</p>
+<p>
+  A Gift Card of $20 has been redeemed to <%= current_user.email %>
+</p>
+<p>
+  Your balance is now: <%= current_user.balance %>
+</p>
+
+<%= link_to "Got it!", new_redemption_card_url %>

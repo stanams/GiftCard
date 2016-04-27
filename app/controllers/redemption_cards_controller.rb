@@ -1,7 +1,8 @@
 class RedemptionCardsController < ApplicationController
 
   def new
-    @redemption_card = RedemptionCard.new
+
+    @redemption_card = RedemptionCard.new(user_id: current_user.id)
   end
 
   def index
@@ -9,15 +10,19 @@ class RedemptionCardsController < ApplicationController
   end
 
   def create
-    @redemption_card = RedemptionCard.find_by_card_codes(
-      params[:redemption_card][:card_code],
-      params[:redemption_card][:card_pin]
-    )
+    @redemption_card = RedemptionCard.create(redemption_card_params)
 
+    # @redemption_card = RedemptionCard.find_by_card_codes(
+    #   params[:redemption_card][:card_code],
+    #   params[:redemption_card][:card_pin]
+    # )
+    @current_user_balance = current_user.balance
+    @current_user_balance += 20
     if (params[:redemption_card][:card_code].to_s.include?("symphonycrocks")) &&
       (params[:redemption_card][:card_pin] == "1234")
 
-      redirect_to new_redemption_card_url
+
+      redirect_to redemption_card_url(@redemption_card.id)
       flash.now[:success] = ["Congrats! You've redeemed your Card Gift!"]
     elsif (params[:redemption_card][:card_code] == "") && (params[:redemption_card][:card_pin] == "")
       flash.now[:errors] = ["You didn't enter your card & pin codes!"]
@@ -36,6 +41,7 @@ class RedemptionCardsController < ApplicationController
   end
 
   def show
+    current_user.balance += 20
     @redemption_card = RedemptionCard.find(params[:id])
   end
 

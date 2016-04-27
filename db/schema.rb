@@ -11,15 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160426054250) do
+ActiveRecord::Schema.define(version: 20160427131240) do
 
   create_table "redemption_cards", force: :cascade do |t|
-    t.string   "card_code",  null: false
-    t.integer  "card_pin",   null: false
-    t.integer  "amount",     null: false
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "card_code",               null: false
+    t.integer  "card_pin",                null: false
+    t.integer  "amount",     default: 10, null: false
+    t.integer  "user_id"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "redemption_cards", ["user_id"], name: "index_redemption_cards_on_user_id"
