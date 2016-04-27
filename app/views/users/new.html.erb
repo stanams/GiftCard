@@ -1,7 +1,8 @@
 <div class="page-wrapper">
 
   <div class="brand-name">
-    <img src="http://res.cloudinary.com/codehunt/image/upload/c_scale,w_120/v1461658809/logo_ubhtk5.png" alt="The Atlantic" />
+    <img src="http://res.cloudinary.com/codehunt/image/upload/c_scale,w_120/v1461658809/logo_ubhtk5.png"
+         alt="Logo" />
   </div>
 
   <div class="auth-wrapper">
@@ -19,10 +20,21 @@
 
       <form class="auth-form" action="/users" method="post">
         <%= auth_token %>
-        <input class="input-field" type="text" name="user[email]" id="email" placeholder="Email" value="<%= @user.nil? ? '' : "#{@user.email}"%>">
+        <input class="input-field"
+               type="email"
+               required
+               name="user[email]"
+               id="email"
+               placeholder="Email"
+               value="<%= @user.nil? ? '' : "#{@user.email}"%>"
+               >
         <br>
         <br>
-        <input class="input-field" type="password" name="user[password]" id="password" value="" placeholder="Password">
+        <input class="input-field"
+               type="password"
+               name="user[password]"
+               id="password"
+               placeholder="Password">
         <br>
         <br>
 

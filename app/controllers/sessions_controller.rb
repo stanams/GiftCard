@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 
     if @user
       sign_in(@user)
-      redirect_to new_redemption_card_url
+      redirect_to check_form_redemption_cards_url
     else
       flash.now[:errors] = ["Invalid email or password."]
       render :new

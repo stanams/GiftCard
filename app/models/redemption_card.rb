@@ -5,20 +5,16 @@ class RedemptionCard < ActiveRecord::Base
   validates :card_code, length: { is: 16 }
   validates :card_pin, length: { is: 4 }
 
-
   belongs_to :user
 
-
-  def self.find_by_card_codes(card_code, card_pin)
-    @redemption_card = RedemptionCard.find_by(card_code: card_code)
-    return nil unless @redemption_card && @redemption_card.is_pin?(card_pin)
-    @redemption_card
-  end
-
-  def is_pin?(card_pin)
-    # Hard coded value for card_pin
-    if card_pin != 1111
-      flash.now[:errors] = ["Wrong pin! Double check your pin on your gift card."]
+  def self.use!(user, code, pin)
+    redemption_card = RedemptionCard.where(used_at: nil, card_code: code, card_pin: pin).first
+    if redemption_card
+      redemption_card.update! used_at: Time.now, user: user
+      user.update! balance: user.balance + redemption_card.amount
+      redemption_card
+    else
+      nil
     end
   end
 
